@@ -1,3 +1,3 @@
 output "response" {
-  value = module.example.response
+  value = module.example.address
 }

@@ -12,34 +12,43 @@ Creates the boiler plate projects structure and files for a Terraform module.
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 3 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | ~> 3.1 |
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.59.0 |
+| <a name="provider_random"></a> [random](#provider\_random) | 3.1.0 |
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_example_external_module"></a> [example\_external\_module](#module\_example\_external\_module) | ./modules/external-module | n/a |
-| <a name="module_example_internal_module"></a> [example\_internal\_module](#module\_example\_internal\_module) | ./modules/internal-module | n/a |
+No modules.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [aws_db_instance.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance) | resource |
+| [aws_db_parameter_group.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_parameter_group) | resource |
+| [random_password.this](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | Your name | `string` | `"Aristotle"` | no |
-| <a name="input_region"></a> [region](#input\_region) | Default region used by the provider | `string` | `"us-east-2"` | no |
+| <a name="input_dataset"></a> [dataset](#input\_dataset) | The data set to use "classicmodels" or "employees".  Defaults to "classicmodels". more [info](https://github.com/danielmerrison/terraform-aws-sample-database) | `string` | `"classicmodels"` | no |
+| <a name="input_name"></a> [name](#input\_name) | The name to use when creating the database | `string` | n/a | yes |
+| <a name="input_password"></a> [password](#input\_password) | Password to use when creating the database (If not specified a random string will be used) | `string` | `"<random_value>"` | no |
+| <a name="input_username"></a> [username](#input\_username) | Username to use when creating the database. Defaults to 'dbuser' | `string` | `"dbuser"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_response"></a> [response](#output\_response) | Sub-module responses |
+| <a name="output_address"></a> [address](#output\_address) | Database hostname |
+| <a name="output_password"></a> [password](#output\_password) | Database password |
+| <a name="output_username"></a> [username](#output\_username) | Database username |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Development

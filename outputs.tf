@@ -1,8 +1,15 @@
-output "response" {
-  value = {
-    "this"                     = local.response
-    "internal-module-response" = module.example_internal_module.response
-    "external-module-response" = module.example_external_module.response
-  }
-  description = "Sub-module responses"
+output "address" {
+  value       = aws_db_instance.this.address
+  description = "Database hostname"
+}
+
+output "username" {
+  value       = aws_db_instance.this.username
+  description = "Database username"
+}
+
+output "password" {
+  value       = aws_db_instance.this.password
+  sensitive   = true
+  description = "Database password"
 }
